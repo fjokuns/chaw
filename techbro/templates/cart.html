@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+{% load humanize %}
+
+{% block title %}{{profile.user.username|title}}'s Shopcart{% endblock title%}
+{% comment %} header {% endcomment %}
+{% block header %} {% include 'header.html' %}{% endblock header %}
+{% comment %} header {% endcomment %}
+
+
+{% block content %}
+<!-- cart start -->
+<section class="mt-5">
+    <div class="container cart">
+      <div class="table-responsive">
+        <h2 class="text-center">{{profile.first_name|title}} your Shopcart</h2>
+        <table class="table">
+          <thead class="thead bg-dark">
+            {% if shopcart %}
+                {% for items in shopcart%}
+            <tr>
+              <th scope="col" class="text-white">Delete</th>
+              <th scope="col" class="text-white">Product</th>
+              <th scope="col" class="text-white">Price</th>
+              <th scope="col" class="text-white">Quantity</th>
+              <th scope="col" class="text-white">Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+                <td>
+                    <form action="{% url 'deletemeal' %}" method="POST">
+                    {% csrf_token%}
+                        <input type="hidden" name="dishid" value="{{items.id}}">
+                        <button type="submit" class="btn btn-transparent text-danger"><i class="fa-solid fa-trash"></i></button>
+                    </form>
+                </td>
+              <td>
+                <div class="main">
+                  <div class="d-flex">
+                    <img src="{{items.dish.image.url}}" alt="">
+                  </div>
+                  <div class="des">
+                    <p>{{items.c_name}}</p>
+                  </div>
+                </div>
+              </td>
+              <td>
+                <h6>${{items.c_price|floatformat:2|intcomma}}</h6>
+              </td>
+              <td>
+                
+                <div class="counter d-flex">
+                  <form action="{% url 'decrease' %}" method="POST">
+                    {% csrf_token %}
+                    <input type="hidden" name="itemid" value="{{items.id}}" class="inputone">
+                    <input type="hidden" name="decrease" value="1" min="{{items.dish.min}}" max="{{items.dish.max}}" style="width: 60px">
+                    <button type="submit" class="bg-transparent border-0"><i class="fa-solid fa-circle-minus"></i></button>
+                  </form>
+                  <span class="ms-2 me-2">{{items.quantity}}</span>
+                  <form action="{% url 'increase' %}" method="POST">
+                    {% csrf_token %}
+                    <input type="hidden" name="itemid" value="{{items.id}}" class="inputone">
+                    <input type="hidden" name="increase" value="1" min="{{items.dish.min}}" max="{{items.dish.max}}" style="width: 60px">
+                    <button type="submit" class="bg-transparent border-0"><i class="fa-solid fa-circle-plus"></i></button>
+                  </form>
+                </div>
+              </td>
+              <td>
+                <h5>${{items.amount}}</h5>
+              </td>
+            </tr>
+                {% endfor %}
+            {% endif %}
+            <!--  -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div>
+      <form action="{% url 'deleteallmeal' %}" method="POST">
+        {% csrf_token%}
+            <input type="hidden" name="dishid" value="{{items.id}}">
+            <button type="submit" class="btn btn-transparent text-danger"><i class="fa-solid fa-trash"></i></button>
+        </form>
+    </div>
+  </section>
+  <div class="col-lg-4 offset-lg-4">
+    <div class="checkout">
+      <ul>
+        <li class="Subtotal">Subtotal
+          <span>${{subtotal|floatformat:2|intcomma}}</span>
+        </li>
+        <li class="cart-total">Vat
+          <span>${{vat|floatformat:2|intcomma}}</span>
+        </li>
+        <li class="cart-total">Total
+          <span>${{total|floatformat:2|intcomma}}</span>
+        </li>
+      </ul>
+      <a href="{% url 'checkout' %}" class="proceed-btn">Proceed To checkout</a>
+    </div>
+  </div>
+  <!-- cart end -->
+{% endblock content%}
+
+{% block footer %} {% include 'footer.html' %}{% endblock footer %}
+
+{% comment %} footer {% endcomment %}

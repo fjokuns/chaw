@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ profile_data.user.username|title }} {% endblock title %}
+
+{% comment %} header {% endcomment %}
+{% block header %} {% include 'header.html' %}{% endblock header %}
+{% comment %} header done  {% endcomment %}
+
+{% block content %}
+<section class="bigger">
+    <div class="row text-center">
+
+        {% include 'dash_sidebar.html' %}
+
+        <div class="col-5 col-sm-6 col-md-3 col-lg-2 col-xl-8 base">
+            <div class="basic">
+                <div class="basicheader">
+                    <h2>Basic Info</h2>
+                </div>
+                <div class="profileicon">
+                    <img src="{{profile_data.profile_pix.url}}">
+                </div>
+                <div class="info">
+                    <p>First Name : {{profile_data.first_name|title}}</p>
+                    <p>Last Name  : {{profile_data.last_name|title}}</p>
+                    <p>Email : {{profile_data.email|title}}</p>
+                    <p>Address : {{profile_data.address|title}}</p>
+                    <p>City : {{profile_data.city|title}}</p>
+                    <p>State : {{profile_data.state|title}}</p>
+                </div>
+            </div>
+        </div>
+        
+      </div>
+</section>
+{% endblock content %}
+
+{% comment %} footer {% endcomment %}
+{% block footer %} {% include 'footer.html' %}{% endblock footer %}
+{% comment %} footer done {% endcomment %}

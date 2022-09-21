@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load humanize %}
+
+{% block title %}{{profile.user.username|title}}'s Shopcart{% endblock title%}
+{% comment %} header {% endcomment %}
+{% block header %} {% include 'header.html' %}{% endblock header %}
+{% comment %} header {% endcomment %}
+
+
+{% block content %}
+<!-- cart start -->
+<section class = "mt-5">
+  <div class="container cart">
+    <h5>{{profile.first_name|title}}, your transaction is successful</h5>
+    <h6>Your food will be delivered within an hour</h6>
+    <p> Thank ypu for your patronage</p>
+</section>
+  <!-- cart end -->
+{% endblock content%}
+
+{% block footer %} {% include 'footer.html' %}{% endblock footer %}
+
+{% comment %} footer {% endcomment %}
