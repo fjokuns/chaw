@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-m1r2=ztguelrofw1tunjt&y3k-_0*_4mmzucetz6noqoy^b!)-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['3.92.201.65']
+ALLOWED_HOSTS = ['3.84.19.109']
 
 
 # Application definition
@@ -85,7 +85,16 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'chawdb',
+#         'USER': 'chawadmin',
+#         'PASSWORD': 'admin1234',
+#         'HOST': '127.0.0.1',
+#         'PORT': '5432',
+#     }
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
