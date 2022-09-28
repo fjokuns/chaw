@@ -1,4 +1,3 @@
-from tokenize import blank_re
 from unicodedata import category
 from django.db import models
 

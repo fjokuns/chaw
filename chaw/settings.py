@@ -23,10 +23,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-m1r2=ztguelrofw1tunjt&y3k-_0*_4mmzucetz6noqoy^b!)-'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['3.84.19.109']
-
+ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = ['3.84.19.109']
 
 # Application definition
 
@@ -79,22 +79,22 @@ WSGI_APPLICATION = 'chaw.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
 # DATABASES = {
 #     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'chawdb',
-#         'USER': 'chawadmin',
-#         'PASSWORD': 'admin1234',
-#         'HOST': '127.0.0.1',
-#         'PORT': '5432',
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
 #     }
 # }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'chawdb',
+        'USER': 'chawadmin',
+        'PASSWORD': 'diesel2019',
+        'HOST': '127.0.0.1',
+        'PORT': '5432',
+    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
@@ -147,7 +147,7 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'okunsuwafejiro@gmail.com'
-EMAIL_HOST_PASSWORD = 'fidcqgfgnajoersk'
+EMAIL_HOST_PASSWORD = 'lmtlrwyvhzxfekxb'
 EMAIL_USE_TLS = True
 #email setting done 
 
