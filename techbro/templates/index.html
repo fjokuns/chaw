@@ -28,7 +28,7 @@
         {% for m in categories %}
         <div class="col-5 col-sm-4 col-md-3 col-lg-2 col-xl-4">
           <div class="card">
-            <a href="breakfast.html"><img src="{{m.cat_image.url}}" class="card-img-top"></a>
+            <a href="{% url 'singlecat' m.id %}"><img src="{{m.cat_image.url}}" class="card-img-top"></a>
             <div class="card-body text-center">
               <h3 class="card-title">{{m.cat_name}}</h3>
             </div>

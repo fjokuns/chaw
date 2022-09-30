@@ -32,8 +32,12 @@
                 <h3 class="card-title">{{item.name}}</h3>
                 <p class="card-title">${{item.price}}</p>
                 <p class="card-title">{{item.description}}</p>
-                <a href='#' class="btn btn-secondary"><i class="fa-solid fa-cart-arrow-down"></i></a>
-              </div>
+                <form action="{% url 'ordermeal' %}" method="POST">
+                  {% csrf_token %}
+                  <input type="hidden" name="mealid" value="{{item.id}}" min="" max="">
+                  <input type="number" name="mealquantity" value="1" min="{{item.min}}" max="{{item.max}}" style="width: 60px;">
+                  <button href='#' class="btn btn-secondary"><i class="fa-solid fa-cart-arrow-down"></i></button>
+                </form>              </div>
             </div>
           </div>
           {% endfor %}
