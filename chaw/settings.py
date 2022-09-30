@@ -23,10 +23,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-m1r2=ztguelrofw1tunjt&y3k-_0*_4mmzucetz6noqoy^b!)-'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
-# ALLOWED_HOSTS = ['3.84.19.109']
+# ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['54.83.87.115']
 
 # Application definition
 
@@ -88,7 +88,7 @@ WSGI_APPLICATION = 'chaw.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'chawdb',
+        'NAME': 'chawd2',
         'USER': 'chawadmin',
         'PASSWORD': 'diesel2019',
         'HOST': '127.0.0.1',
